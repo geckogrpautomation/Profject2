@@ -319,8 +319,50 @@ router.post('/api/clrBurger/:id', function (req, res) {
        res.render('fourOfour', {title: '404: File Not Found'});
 
     });
- 
 
+//Fetch Picture of the day Nasa Api call
+
+router.get('/', function(req,res,next) {
+    res.render('index', {title: 'Express'});
+})
+
+router.get('/get_pictureoftheday',(req,res)=> {
+    console.log('/get_pictureoftheday endpoint call');
+    res.json({
+        'message':'Picture response'
+    });
+});
+
+router.post('/post_pictureoftheday', (req,res) => {
+    console/log('/post_pictureoftheday endpoint called');
+    console.log('BODY:', req.body.attr1);
+    res.json({
+        'message': 'response here from /post_pictureoftheday'
+});
+});
+
+router.get('/fetch_image', async (req,res) => {
+    console.log('/fetch_image endpoint called');
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+    const options = {
+        'Method': 'GET',
+    };
+
+    const response = await fetch(url, options)
+     .then(res => res.json())
+     .catch(e => {
+         console.error({
+             'message': "Error",
+             error: e,
+         });
+     });
+    console.log('RESPONSE:', response);
+    res.json(response);
+
+});
+
+ //End of fetch picture of the day API call
+ 
 //<------------------------------------------------------------------------------------SCRIPTS---------------------------------------------------------------------------------------------->
 
 // Export routes for server.js to use.
