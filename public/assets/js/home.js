@@ -6,7 +6,7 @@
 
 // //Add event handlers.
 
-
+//********************************************************************HOME PAGE  */
 if (window.location.href === (window.location.origin + '/home')){
 
 //Do stuff for home page
@@ -18,6 +18,9 @@ else{
     console.log(window.location.origin + '/home');
 
 } 
+
+
+//*************************Apolinars apge */
 
 
 // if (devBtnObj){

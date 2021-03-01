@@ -1,3 +1,4 @@
+
 .card-body{
     
     background-color: #483475 !important; 
@@ -34,4 +35,17 @@ h1 {
 
     color : #141852;
     
+}
+
+.odd-sect{
+
+    background-color : #6B4984;
+    color : #070B34 ;
+}
+
+.even-sect{
+
+    background-color : #070B34 ;
+    color: #6B4984;
+
 }
