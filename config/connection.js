@@ -2,8 +2,8 @@
 const Sequelize = require('sequelize');
 
 //Connect to correct database. Input your correct credentials here
-const sequelize = new Sequelize('project2', 'root', 'RmkL!CB~x2t>D;Y>%9-B_nnD', {
-  host: 'localhost',
+const sequelize = new Sequelize('profject2', 'monashprofject@monashprofject', 'cosmos123!@#', {
+  host: 'monashprofject.mysql.database.azure.com',
   dialect: 'mysql',
   pool: {
     max: 9,
