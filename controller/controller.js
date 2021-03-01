@@ -91,6 +91,11 @@ router.get('/home', requireAuth, (req, res) => {
     
 });
 
+router.get('/nearearth', requireAuth, (req, res) => {
+
+    res.render('nearearth')
+       
+});
 //<------------------------------------------------------------------------------------POST---------------------------------------------------------------------------------------------->
 
 router.post('/enrol', (req, res) => {
@@ -197,113 +202,7 @@ router.post('/login', (req, res) => {
 });
 
 
-router.post('/api/picofday', (req, res) => {
-
-    fetch 
-
-       
-});
-
- //<------------------------------------------------------------------------------------PUT---------------------------------------------------------------------------------------------->
-
- //Devour the burger from the ordered burger list and add to the devoured burgers database
-router.post('/api/devBurger/:id', function (req, res) {
-    
-    let id = req.params.id;
-       
-    function get() {
-
-        return new Promise(resolve => {
-
-            mdl.subBurger.findAll(
-                {where: {
-                    id: id
-                }
-            }).then((dbRes) => { 
-                       
-            resolve(dbRes)  
-            })
-                        
-        });
-    }
-
-    function create(dbRes) {
-
-        let arr = [];
-        
-        dbRes.forEach(e => {
-
-            arr.push({burger : e.dataValues.burger});
-           
-        });
-        
-        console.log("this is for create - " +  arr[0].burger)
-       
-        return new Promise(resolve => {
-           
-          mdl.devBurger.create({burger : arr[0].burger})
-          .then(() => {         
-           console.log("create done");
-           })
-
-        resolve()
-
-        });
-    }
-
-    function del() {
-        return new Promise(resolve => {
-
-            mdl.subBurger.destroy(
-                {where: {
-                    id: id
-                }
-            }).then(() => {         
-                console.log("destroy done");
-            })
-
-        resolve()
-
-        });
-    }
-    console.log()
-
-    //Call the above functions in order and via promises
-    get().then((dbRes) => create(dbRes)).then(() => del().then( ()=> {
-
-        res.status(200).send("OK");
-    }));
-
-});
-
- //Clear the burger from the devoured burger list.
-router.post('/api/clrBurger/:id', function (req, res) {
-
-    let id = req.params.id;
-    
-    console.log("this is my put id   --- " + id);
-
-    function del() {
-        return new Promise(resolve => {
-
-            mdl.devBurger.destroy(
-                {where: {
-                    id: id
-                }
-            }).then(() => {         
-                console.log(`Dev Burger destroy done with id = ${id}`);
-            })
-
-        resolve()
-
-        });
-    }    
-
-    //Call the above functions in order and via promises
-    del().then( () => {res.status(200).send("OK");});
-        
-});
-  
+   
  //<------------------------------------------------------------------------------------DELETE---------------------------------------------------------------------------------------------->
 
  //Drop devBurger databse and reinstate it with no data
