@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-let routes = require(path.join(__dirname,'./controller/index'));
+let routes = require(path.join(__dirname,'./controller/controller'));
 const PORT = process.env.PORT || 3000;
 const app = express();
 
