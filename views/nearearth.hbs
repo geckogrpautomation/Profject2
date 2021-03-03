@@ -1,17 +1,6 @@
+<link rel="stylesheet" href="/DatePicker/dist/mc-calendar.min.css" />
 <body>
-
-  <div class="row justify-content-md-center" style="margin-top: 30px">
-      <div class="col-md-8">
-
-          <div class="jumbotron">
-              <h1 class="display-4">NASA - Project 2</h1>
-              <p class="lead">Explore the cosmos maaaaan!</p>
-              <hr class="my-4">       
-          </div>
-
-      </div>
-  </div>
-  
+ 
   <section class = "odd-sect">
 
   <div class="row justify-content-md-center" style="margin-top: 30px">
@@ -27,21 +16,44 @@
 
 </section>
 
-
 <section class = "even-sect">
 
-<div class="row justify-content-md-center" style="margin-top: 30px">
+  <div class="row align-items-center" style="margin-top: 30px">
 
-  <div class="col-md-10 ">
+    <div class="col-4"></div>
 
-      <div class = '.start'></div>
-      <div class = '.end'></div>
-
-      <a class="btn btn-primary btn-lg active" id = "get-event'">See impending doom!</a>
+    <div class="col-2 align-self-center"style = "text-align: center;">
       
+      <div class="input-icons">
+          <i class="fa fa-calendar" aria-hidden="true" style = "font-size: 35px"></i>
+            <input type="text" id="start" placeholder="Search Start Date">   
+      </div>
+        
+    </div>
+
+    <div class="col-2 align-self-center"style = "text-align: center;">
+
+      <div class="input-icons">
+        <i class="fa fa-calendar" aria-hidden="true"style = "font-size: 35px"></i>
+        <input type="text" id="end"placeholder="Search End Date">      
+      </div>
+
+    </div>
+
+    <div class="col-4"></div>
+
   </div>
-</div>
 
 </section>
+
+<section class = "odd-sect">
+
+
+
+
+</section>
+
+<script src="/DatePicker/dist/mc-calendar.min.js"></script>
+<script type="text/javascript" src="assets/js/nearearth.js"></script>
 </body>
 

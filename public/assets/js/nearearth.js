@@ -1,9 +1,16 @@
-// const datepicker = require('js-datepicker')
-// let getEventsObj = document.getElementById('get-event');
-// const start = datepicker('.start', { id: 1 });
-// const end = datepicker('.end', { id: 1 });
 
+window.addEventListener("load", function () {
 
+    const startDate = MCDatepicker.create({ 
+        el: '#start',
+        dateFormat: 'DD-MM-YYYY'
+    })
 
-// start.getRange() // { start: <JS date object>, end: <JS date object> }
-// end.getRange()
+    const endDate = MCDatepicker.create({ 
+        el: '#end',
+        dateFormat: 'DD-MM-YYYY'
+    })
+
+    console.log(startDate);
+    console.log(endDate);
+}); //End window event listener

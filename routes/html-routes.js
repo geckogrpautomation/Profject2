@@ -31,9 +31,7 @@ module.exports = function(app) {
   });
   
  app.get('/members' , isAuthenticated , (req, res) => {
-
-  if (req.user) {
-    
+      
     fetch('https://api.nasa.gov/planetary/apod?count=1&api_key=Vc6jvuVGkgq2YHIkvZ75oSPNytwpCfxAIO913y6c')
 
     .then(response => response.json())
@@ -44,24 +42,12 @@ module.exports = function(app) {
         
         res.render('home', {url : data[0].url , date :data[0].date , title : data[0].title , explanation : data[0].explanation })
     });
-
-  }
-
-  else{
-
-  res.sendFile(path.join(__dirname, "../public/login.html"));
-
-  }
-
-    
-    
+       
 });
 
 app.get('/nearearth', isAuthenticated , (req, res) => {
 
       res.render('nearearth')
-
- 
        
 });
 
