@@ -6,7 +6,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const DAILY_BASEPATH = 'https://api.nasa.gov/planetary/apod?count=1';
 const API_KEY = '&api_key=Vc6jvuVGkgq2YHIkvZ75oSPNytwpCfxAIO913y6c';
 
-
 module.exports = function(app) {
   
   app.get("/", (req, res) => {
@@ -64,6 +63,4 @@ app.get('*' , function (req,res){
 });
 
 
-
-
-};//End module exports.
+}//End module exports.
