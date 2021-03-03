@@ -49,5 +49,13 @@ h1 {
     color: #6B4984;
 
 }
+.form-group{
+    margin-top: 2%;
+}
+
+.btn {
+    background-color: #483475;
+    margin : 2%;
+}
 
 

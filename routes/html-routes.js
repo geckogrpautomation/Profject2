@@ -32,7 +32,7 @@ module.exports = function(app) {
   
  app.get('/members' , isAuthenticated , (req, res) => {
       
-    fetch('https://api.nasa.gov/planetary/apod?count=1&api_key=Vc6jvuVGkgq2YHIkvZ75oSPNytwpCfxAIO913y6c')
+    fetch('https://api.nasa.gov/planetary/apod?count=3&api_key=Vc6jvuVGkgq2YHIkvZ75oSPNytwpCfxAIO913y6c')
 
     .then(response => response.json())
 
@@ -40,7 +40,12 @@ module.exports = function(app) {
         
         console.log(data)
         
-        res.render('home', {url : data[0].url , date :data[0].date , title : data[0].title , explanation : data[0].explanation })
+        res.render('home', {url1 : data[0].url , date1 :data[0].date , title1 : data[0].title , explanation1 : data[0].explanation,
+        
+                            url2 : data[1].url , date2 :data[1].date , title2: data[1].title , explanation2 : data[1].explanation,
+        
+                            url3 : data[2].url , date3 :data[2].date , title3: data[2].title , explanation3 : data[2].explanation,
+        })
     });
        
 });
