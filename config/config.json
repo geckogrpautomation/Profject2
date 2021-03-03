@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "monashprofject@monashprofject",
+    "password": "cosmos123!@#",
+    "database": "profject2",
+    "host": "monashprofject.mysql.database.azure.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "monashprofject@monashprofject",
+    "password": "cosmos123!@#",
+    "database": "profject2",
+    "host": "monashprofject.mysql.database.azure.com",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "monashprofject@monashprofject",
+    "password": "cosmos123!@#",
+    "database": "profject2",
+    "host": "monashprofject.mysql.database.azure.com",
+    "dialect": "mysql"
+  }
+}

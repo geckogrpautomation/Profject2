@@ -1,22 +1,30 @@
-const cookieParser = require('cookie-parser');
-//const bodyParser = require('body-parser');
-const express = require('express');
+// Requiring necessary npm packages
+const express = require("express");
+const session = require("express-session");
 const exphbs = require('express-handlebars');
-const path = require('path');
-let routes = require(path.join(__dirname,'./controller/controller'));
+
+// Requiring passport as we've configured it
+const passport = require("./config/passport");
+
+// Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3000;
+const db = require("./models");
+
+// Creating express app and configuring middleware needed for authentication
 const app = express();
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.json());
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "profject2SpaceWarriors", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use(cookieParser());
-
-app.use(routes);
+// Requiring our routes
+require("./routes/html-routes")(app);
+require("./routes/api-routes")(app);
 
 app.engine('hbs', exphbs({
     extname: '.hbs'
@@ -24,4 +32,13 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-app.listen(PORT);
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
+});
