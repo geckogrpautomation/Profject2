@@ -21,7 +21,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     console.log("request user ---> " + req.user);
     if (req.user) {
-      res.render("members");
+      res.redirect("/members");
     }
     else{
       res.render('login');
