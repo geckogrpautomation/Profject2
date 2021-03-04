@@ -1,6 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
 const fetch = require('node-fetch');
+const dayjs = require('dayjs');
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const DAILY_BASEPATH = 'https://api.nasa.gov/planetary/apod?count=1';
@@ -35,9 +36,7 @@ module.exports = function(app) {
 
     .then(response => response.json())
 
-    .then(data => {
-        
-        console.log(data)
+    .then(data => {      
         
         res.render('home', {url1 : data[0].url , date1 :data[0].date , title1 : data[0].title , explanation1 : data[0].explanation,
         
@@ -53,6 +52,44 @@ app.get('/nearearth', isAuthenticated , (req, res) => {
 
       res.render('nearearth')
        
+});
+
+app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
+
+  let date = req.params.date.split('&')
+
+
+  const startDate= dayjs(date[0]);
+  const endDate= dayjs(date[1]);
+
+  let dateDiff = endDate.diff(startDate, 'day');
+  console.log(dateDiff);
+
+  if (dateDiff < 7 || dateDiff < 0 ){
+
+    fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date[0]}&end_date=${date[1]}${API_KEY}`)
+
+    .then(response => response.json())
+    .then( (data)  => {
+      
+      res.json(data);
+    });
+  }
+  else if (dateDiff>7){
+
+    res.render('nearearth', {
+      message: 'The API needs date ranges to be less than 7 days',
+      messageClass: 'alert-success'
+    })
+  }  
+  else if (dateDiff<0){
+
+    res.render('nearearth', {
+      message: 'The date range is less than zero days',
+      messageClass: 'alert-success'
+    })
+  }  
+    
 });
 
 app.get('*' , function (req,res){

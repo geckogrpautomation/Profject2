@@ -2,6 +2,10 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const fetch = require('node-fetch');
+
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+const DAILY_BASEPATH = 'https://api.nasa.gov/planetary/apod?count=1';
+const API_KEY = '&api_key=Vc6jvuVGkgq2YHIkvZ75oSPNytwpCfxAIO913y6c';
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -30,12 +34,6 @@ module.exports = function(app) {
       });
   });
 
-  // Route for logging user out
-  app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
-
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
@@ -50,4 +48,12 @@ module.exports = function(app) {
       });
     }
   });
-};
+ 
+  
+  // Route for logging user out
+  app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+  });
+
+}

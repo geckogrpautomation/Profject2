@@ -1,56 +1,70 @@
-<link rel="stylesheet" href="/DatePicker/dist/mc-calendar.min.css" />
+<link rel="stylesheet" href="/assets/js/DatePicker/dist/mc-calendar.min.css" />
+
 <body>
- 
-  <section class = "odd-sect">
 
-  <div class="row justify-content-md-center" style="margin-top: 30px">
+  <section class="odd-sect">
+
+    <div class="row justify-content-md-center" style="margin-top: 30px">
       <div class="col-md-8">
-          <div class="jumbotron">
-              <h1 class="display-4">NeoWs - Near Earth Object Web Service</h1>                                 
-          </div>
+        <div class="jumbotron">
+          <div id = "spinner" class="spinner-border" role="status" style="float: right;"></div>
+          <h1 class="display-4">NeoWs - Near Earth Object Web Service</h1>          
+          <hr class="my-4">  
+        </div>
       </div>
-  </div>
+    </div>
+                {{#if message}}
+                <div class="alert {{messageClass}}" role="alert">
+                    {{message}}
+                </div>
+                {{/if}}
+  </section>
 
-</section>
+  <section class="even-sect">
 
-<section class = "even-sect">
+    <div class="row justify-content-center align-items-center" style="margin-top: 30px">
 
-  <div class="row align-items-center" style="margin-top: 30px">
 
-    <div class="col-4"></div>
 
-    <div class="col-2 align-self-center"style = "text-align: center;">
-      
-      <div class="input-icons">
-          <i class="fa fa-calendar" aria-hidden="true" style = "font-size: 35px"></i>
-            <input type="text" id="start" placeholder="Search Start Date">   
+      <div class="col-2 align-self-center" style="text-align: center;">
+
+        <div class="input-icons">
+          <i class="fa fa-calendar" aria-hidden="true" style="font-size: 35px"></i>
+          <input type="text" id="start" placeholder="Search Start Date">
+        </div>
+
       </div>
+
+      <div class="col-2 align-self-center" style="text-align: center;">
+
+        <div class="input-icons">
+          <i class="fa fa-calendar" aria-hidden="true" style="font-size: 35px"></i>
+          <input type="text" id="end" placeholder="Search End Date">
+        </div>
+
+      </div>
+
+      <div class="col-2 align-self-center" style="text-align: center" ;>
+
+        <button type="submit" class="btn btn-primary" id="searchNeoWs">Search</button>
         
-    </div>
-
-    <div class="col-2 align-self-center"style = "text-align: center;">
-
-      <div class="input-icons">
-        <i class="fa fa-calendar" aria-hidden="true"style = "font-size: 35px"></i>
-        <input type="text" id="end"placeholder="Search End Date">      
+        
       </div>
 
     </div>
 
-    <div class="col-4"></div>
+  </section>
 
-  </div>
+  <section class="odd-sect">
 
-</section>
+    <div class="row justify-content-center align-items-center" style="margin-top: 30px">
 
-<section class = "odd-sect">
+      <div class = "col-12">
+        <div id = "accInsert"></div>
+      </div>    
+        </div>
+  </section>
 
-
-
-
-</section>
-
-<script src="/DatePicker/dist/mc-calendar.min.js"></script>
-<script type="text/javascript" src="assets/js/nearearth.js"></script>
+  <script src="/assets/js/DatePicker/dist/mc-calendar.min.js"></script>
+  <script type="text/javascript" src="assets/js/nearearth.js"></script>
 </body>
-
