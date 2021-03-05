@@ -12,9 +12,11 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render("home");
+      res.redirect("/home");
+    }else{
+      res.render("signup");
     }
-    res.render("signup");
+    
   });
 
   app.get("/login", (req, res) => {
@@ -65,7 +67,7 @@ app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
   let dateDiff = endDate.diff(startDate, 'day');
   console.log(dateDiff);
 
-  if (dateDiff < 7 || dateDiff > 0 ){
+  if (dateDiff < 7 && dateDiff > 0 ){
 
     fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date[0]}&end_date=${date[1]}${API_KEY}`)
 
@@ -75,26 +77,22 @@ app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
       res.json(data);
     });
   }
-  else if (dateDiff>7){
+  else if (dateDiff > 7){ 
 
-    res.render('nearearth', {
-      message: 'The API needs date ranges to be less than 7 days',
-      messageClass: 'alert-success'
-    })
+    res.render('nearearth',{message: 'The API needs date ranges to be less than 7 days'});   
+   
   }  
-  else if (dateDiff<0){
-
-    res.render('nearearth', {
-      message: 'The date range is less than zero days',
-      messageClass: 'alert-success'
-    })
+  else if (dateDiff<0){    
+    
+    res.render('nearearth',{message: 'The date range is less than zero days'});  
+   
   }  
     
 });
 
 app.get('*' , function (req,res){
 
-  res.status(400);
+  res.status(404);
   res.render('fourOfour', {title: '404: File Not Found'});
 
 });

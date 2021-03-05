@@ -22,10 +22,12 @@ window.addEventListener("load", function () {
 
       getData().then(data => {
 
-        renderResults(data);
-      
-      }); 
+        if (data){
 
+          renderResults(data);
+
+        }
+      }); 
     });
 }); //End window event listener
 
@@ -59,31 +61,36 @@ async function getData() {
   }
 
 }
-
 //Render the returned results
 function renderResults(data){
-     
-  let keys = Object.keys(data.near_earth_objects);
 
-  let html = "";
-    
-    keys.forEach((el,i) => {
+  
+  if (data.near_earth_objects){
 
-      html= html.concat(buildHead(el,i));      
+    let keys = Object.keys(data.near_earth_objects);
 
-      data.near_earth_objects[el].forEach((el,i) => {
-
-        html= html.concat(buildTblBody(el,i));
-
+    let html = "";
+      
+      keys.forEach((el,i) => {
+  
+        html= html.concat(buildHead(el,i));      
+  
+        data.near_earth_objects[el].forEach((el,i) => {
+  
+          html= html.concat(buildTblBody(el,i));
+  
+        })
+        html = html.concat(buildTblTail());
       })
-      html = html.concat(buildTblTail());
-    })
-  html = html.concat(buildEndAcc());
-  
-
-  insertHtml(html);
-  
+    html = html.concat(buildEndAcc());
+      
+    insertHtml(html);
+  }else{
+    document.getElementById('spinner').style.display='none';
+  }
 }
+     
+ 
 
 
 function buildHead(date,i){
