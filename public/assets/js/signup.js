@@ -45,7 +45,7 @@ function signUpUser(user) {
     body: user
   }) 
   .then(() => {
-    window.location.replace("/members");
+    window.location.replace("/home");
     // If there's an error, log the error
   })
   .catch(err => {

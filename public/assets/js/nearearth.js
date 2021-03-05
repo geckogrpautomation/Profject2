@@ -105,14 +105,14 @@ let accHead =`
               <tr>
                 <th scope="col">Count</th>
                 <th scope="col">Name</th>
-                <th scope="col">Approach Time</th>
+                <th scope="col">Approach time</th>
                 <th scope="col">JPL URL</th>
-                <th scope="col">Absolute_magnitude_h</th>
-                <th scope="col">Estimated_diameter min</th>
-                <th scope="col">Estimated_diameter max</th>
+                <th scope="col">Abs magnititude h</th>
+                <th scope="col">Est diameter min (km)Estimated_diameter min</th>
+                <th scope="col">Est diameter max (km)</th>
                 <th scope="col">Speed (km/s)</th>
                 <th scope="col">Miss distance (km)</th>            
-                <th scope="col">is a threat to Earth</th>
+                <th scope="col">Threat to earth?</th>
               </tr>
             </thead>`;
 return accHead;

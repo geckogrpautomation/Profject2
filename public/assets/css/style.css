@@ -1,3 +1,10 @@
+.body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding-bottom: 250px; 
+    box-sizing: border-box;
+  }
 
 .card-body{
     
@@ -50,7 +57,7 @@ h1 {
 
 }
 .form-group{
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .btn {
@@ -58,4 +65,22 @@ h1 {
     margin : 2%;
 }
 
+.footer-1{
 
+    position: absolute;
+    min-width: 100vw;
+    bottom: 0;
+    height: 250px;
+    background-color:#483475;
+}
+
+.footer-1 h5{
+
+    margin-top: 2%;
+
+
+}
+.shimg{
+    min-width: 80% !important; 
+    min-height: 80% !important;
+}

@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render("members");
+      res.render("home");
     }
     res.render("signup");
   });
@@ -21,7 +21,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     console.log("request user ---> " + req.user);
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/home");
     }
     else{
       res.render('login');
@@ -30,7 +30,7 @@ module.exports = function(app) {
     //res.sendFile(path.join(__dirname, "../views/login.html"));
   });
   
- app.get('/members' , isAuthenticated , (req, res) => {
+ app.get('/home' , isAuthenticated , (req, res) => {
       
     fetch('https://api.nasa.gov/planetary/apod?count=3&api_key=Vc6jvuVGkgq2YHIkvZ75oSPNytwpCfxAIO913y6c')
 
