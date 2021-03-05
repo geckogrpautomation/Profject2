@@ -65,7 +65,7 @@ app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
   let dateDiff = endDate.diff(startDate, 'day');
   console.log(dateDiff);
 
-  if (dateDiff < 7 || dateDiff < 0 ){
+  if (dateDiff < 7 || dateDiff > 0 ){
 
     fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date[0]}&end_date=${date[1]}${API_KEY}`)
 
