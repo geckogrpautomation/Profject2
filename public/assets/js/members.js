@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
 
   let memberNameObj = document.getElementsByClassName("member-name");
-
+  
   fetch("/api/user_data", { 
     method: 'GET', 
     
