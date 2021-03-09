@@ -7,17 +7,15 @@
     <div class="row justify-content-md-center" style="margin-top: 30px">      
       <div class="col-md-8">
         <div class="jumbotron">          
-          <div id = "spinner" class="spinner-border" role="status" style="float: right;"></div>
+          <div id = "spinner" class="spinner-border" role="status" style="float: right; vertical-align: middle;"></div>
           <h1 class="display-4">NeoWs - Near Earth Object Web Service</h1>          
           <hr class="my-4">  
         </div>
       </div>
     </div>
-                {{#if message}}
-                  <div class="alert alert-danger" role="alert">
-                     {{message}}
-                  </div>                
-                {{/if}}
+               
+    <div id = "errMessage"class="alert alert-danger" role="alert"></div>                
+                
   </section>
 
   <section class="even-sect">

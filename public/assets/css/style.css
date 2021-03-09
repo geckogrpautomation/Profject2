@@ -84,3 +84,8 @@ h1 {
     min-width: 80% !important; 
     min-height: 80% !important;
 }
+
+.alert{
+
+    text-align: center;
+}

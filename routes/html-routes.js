@@ -14,8 +14,15 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/home");
     }else{
-      res.render("signup");
+      res.render("login");
     }
+    
+  });
+
+  app.get("/signup", (req, res) => {
+    // If the user already has an account send them to the members page
+       res.render("signup");
+    
     
   });
 
@@ -59,8 +66,6 @@ app.get('/nearearth', isAuthenticated , (req, res) => {
 app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
 
   let date = req.params.date.split('&')
-
-
   const startDate= dayjs(date[0]);
   const endDate= dayjs(date[1]);
 
@@ -79,13 +84,17 @@ app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
   }
   else if (dateDiff > 7){ 
 
-    res.render('nearearth',{message: 'The API needs date ranges to be less than 7 days'});   
+    let message = {message: 'The API needs date ranges to be less than 7 days'};
+
+    res.json(message);       
    
   }  
-  else if (dateDiff<0){    
+  else if (dateDiff<0){   
+
+    let message = {message: 'The date range is less than zero days'};
     
-    res.render('nearearth',{message: 'The date range is less than zero days'});  
-   
+    res.json(message);    
+      
   }  
     
 });
