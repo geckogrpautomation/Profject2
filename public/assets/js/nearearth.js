@@ -92,7 +92,6 @@ function renderResults(data){
      
  
 
-
 function buildHead(date,i){
 
 i++;
