@@ -57,6 +57,16 @@ module.exports = function(app) {
        
 });
 
+
+// Start of addition for Mars Rover Application
+
+app.get('/mars-rover', isAuthenticated , (req, res) => {
+
+  res.render('mars-rover')
+})
+
+// End of addition for Mars Rover Application
+
 app.get('/nearearth', isAuthenticated , (req, res) => {
 
       res.render('nearearth')
