@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         camNameH4.setAttribute('id', 'camera-name');
                         imgMainDiv.append(camNameH4);
                         const earthDateP1 = document.createElement("p");
-                        //earthDateP1.textContent = `Earth Date: ${filteredResult[i].earth_date}`;
                         earthDateP1.textContent = `Earth Date: ${filteredResult[i].earth_date.split('-').reverse().join('/')}`;
                         earthDateP1.setAttribute('id', 'capture-date');
                         imgMainDiv.append(earthDateP1);
