@@ -1,7 +1,21 @@
+
 <body id="mars-rover-body">
-    <header class="container">MARS ROVER INFORMATION AND PHOTOS</header>
-    <div class="container">
-        <table class="table table-bordered border-secondary">
+
+  <section class="odd-sect">
+
+    <div class="row justify-content-md-center" style="margin-top: 0px">      
+      <div class="col-md-8">
+        <div class="jumbotron">         
+          <h1 class="display-4">Mars Rover and Information and Photos.</h1>          
+          <hr class="my-4">  
+        </div>
+      </div>
+    </div>             
+  </section>
+   
+
+    <section class="even-sect">
+        <table class="table table-bordered border-secondary" style = "margin-bottom: 0px;">
             <thead>
               <tr>
                 <th scope="col">Rover Name</th>
@@ -43,6 +57,9 @@
             </tbody>
           </table>
     </div>
+    </section>
+
+    <section class="odd-sect">
     <div class="container">
         <div class="row justify-content-around">
             <div class="col-4"> <!--Select Camera Input-->
@@ -70,7 +87,7 @@
             </div>
             <div class="col-4">
                 <h5>SELECT DATE:</h5> <!--Select Date-->
-                <input type="date" class="form-control" id="earth-date" placeholder="name@example.com">
+                <input  id="earth-date" placeholder="search date">
             </div>
         </div>
     </div>
@@ -86,11 +103,12 @@
     </div>
     <br>
     <br>
-    <div class="container" id="img-main-div">
+    <div class="container" id="img-main-div" style="text-align:center;">
         
     </div>
+</section>
 
-
+  
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
         integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
