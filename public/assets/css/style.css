@@ -1,10 +1,3 @@
-.body {
-    min-height: 100vh;
-    position: relative;
-    margin: 0;
-    padding-bottom: 250px; 
-    box-sizing: border-box;
-  }
 
 .card-body{
     
@@ -81,16 +74,16 @@ h1 {
 
 }
 .shimg{
-    min-width: 80% !important; 
-    min-height: 80% !important;
+    
+    text-align: center;
 }
 
-<<<<<<< HEAD
+
 .alert{
 
     text-align: center;
 }
-=======
+
 
 /* START OF CSS STYLE FOR MARS ROVER APPLICATION */
 
@@ -107,12 +100,6 @@ header {
     font-size: 30px;
     font-weight: bold;
     border-radius: 10px;
-}
-
-#main-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .main-h3 {
@@ -133,9 +120,6 @@ header {
     text-align: center;
 }
 
-img {
-    border: 5px solid #555
-}
 
 #date-warning {
     color: blue;
@@ -145,4 +129,4 @@ img {
 }
 
 /*END OF CSS STYLES FOR MARS ROVER APPLICATION*/
->>>>>>> 544e65d167a8009357c47ccb45b4828665d2163c
+
