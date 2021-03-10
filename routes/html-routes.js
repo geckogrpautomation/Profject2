@@ -57,7 +57,18 @@ module.exports = function(app) {
        
 });
 
+app.get('/eonet', isAuthenticated , (req, res) => {
 
+  res.render('eonet')
+   
+});
+
+app.get('/eonet', isAuthenticated, (req,res) =>{
+  res.render('/eonet')
+
+  //fetch and return json data
+
+});
 // Start of addition for Mars Rover Application
 
 app.get('/mars-rover', isAuthenticated , (req, res) => {
