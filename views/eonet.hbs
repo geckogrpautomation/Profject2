@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <!--application title--> 
+  <title>Nasa Natural Event Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <!--Nasa open layers-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+  <!--Style sheet-->
+  <link href="./map.css" rel="stylesheet"/>
+  <!--Bootstrap css-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!--Jquery Library-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+</head>
+<body>
+    <!--container starts here-->
+    <div class="container">
+        <div class="jumbotron text-center bg-1">
+          <h1>Natural Event Tracker</h1>
+          <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147993/ISS060-E-37265_720.jpg" class="img-responsive " style="display:inline" alt="all about the universe" width="300" height="300">
+          <p>We are adventurers, lovers of art knowledge and all things awesome. We would love you to explore and enjoy the lovely content on how amazing and beautiful nature is even though these events have been devastating to many. Our hearts go out to those affected.</p>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Click & Explore</h3>
+        <!--data appended to this block-->
+         <div id="selections" class="selections">
+        <span id="eventTitle"></span>
+        <div id="eventSelect"><dl id="eventList"></dl></div>
+        <div id="layerSelect"><dl id="layerList"></dl></div>
+        <button onclick="goBack()">Go Back</button>
+        <br>
+         </div>
+          </div>
+          <div class="col-sm-6">
+            <h3>Watch this space for some cool images of events</h3>
+            <div id="map" class="map"></div>
+            <p>Some events may not have some pictures, dont be deterred just click until an amzing image shows up!</p>
+          </div>
+        </div>
+        <!--second container-->
+          <div class="row">
+          <div class="col-sm-12">
+            <h6>This Map has been populated with some natural events. Click a location and have a look which events are common to that area</h6>               
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+          </div>
+        </div>
+        <!-- Fourth Container (Grid) -->
+  <div class="container-fluid bg-3 text-center">    
+    <h3 class="margin">Check out some of these awesome features on the Earthdata website</h3><br>
+    <div class="row">
+      <div class="col-sm-4">
+      <h4>Wild Swings in Great Lakes Ice</h4>
+        <p>Despite a cold snap in February, low ice cover prevailed across the lakes in winter 2020-2021.</p>
+        <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/148000/148011/greatlakes_vir_2021062.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      </div>
+      <div class="col-sm-4"> 
+      <h4>Spring Heats Up Down Under</h4>
+        <p>The country endured its hottest spring and November on record.</p>
+        <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147619/australia_geos5_2020334.png" class="img-responsive margin" style="width:100%" alt="Image">
+      </div>
+      <div class="col-sm-4"> 
+      <h4>A Watery Day for Lake Lefroy</h4>
+        <p>Spectacular patterns emerged as stormwater pooled on the salt crust of this ephemeral lake in Western Australia.</p>
+        <img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147929/lakelefroy_oli_202140.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      </div>
+    </div>
+  </div>
+      </div>
+<!--JS script link-->
+<script src="./index.js"></script>
+<script src="./maps.js"></script>
+<!--Bootstrap css-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--google maps api-->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<!-- OpenLayers -->
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq-PcgTMxiG_w_KKuEWdJAiknn9B6CmfU&callback=myMap"></script>
+</body>
+</html>
