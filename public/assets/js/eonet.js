@@ -2,16 +2,17 @@ const server = "https://eonet.sci.gsfc.nasa.gov/api/v3";
 
 // First, show the list of events
 
-    $.getJSON( server + "/events", {
+    $.getJSON( server + "/events",{
         status: "open",
         limit: 10
+    }) 
        
-    })
+    
         .done(function( data ) {
             $.each( data.events, function( key, event ) {
                 $( "#eventList" ).append(
                     "<dt class='event'>" +
-                    "<a href='#' onclick='showLayers(\"" + event.id+ "\");'>" +
+                    `<a href='#' onclick='showLayers(${event.id});'>` +
                     event.title + "</a></dt>"
                 );
                 console.log('its working', data);
@@ -20,6 +21,7 @@ const server = "https://eonet.sci.gsfc.nasa.gov/api/v3";
                         "<dd>" + event.description + "</dd>"
                     );
                 }console.log('second part done', data)
+                //showLayers(event.id);
             });
         });
 
@@ -89,7 +91,7 @@ function getCenter(geojson) {
         var lrlat = geojson.coordinates[0][0][1] + 90;
         var lrlon = geojson.coordinates[0][0][0] + 180;
 
-        for (i = 0; i < geojson.coordinates[0].length; i++) {
+        for (let i = 0; i < geojson.coordinates[0].length; i++) {
 
             // longitudes coordinates
             if (geojson.coordinates[0][i][0] + 180 > ullon) {
