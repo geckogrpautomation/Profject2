@@ -1,3 +1,8 @@
+.bodyImg{    
+    background-image: url("/assets/img/earthpan.jpg");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 
 .card-body{
     
@@ -39,13 +44,13 @@ h1 {
 
 .odd-sect{
 
-    background-color : #6B4984;
+    background-color : whitesmoke;
     color : #070B34 ;
 }
 
 .even-sect{
 
-    background-color : #070B34 ;
+    background-color : lightgray ;
     color: #6B4984;
 
 }
@@ -58,21 +63,6 @@ h1 {
     margin : 2%;
 }
 
-.footer-1{
-
-    position: absolute;
-    min-width: 100vw;
-    bottom: 0;
-    height: 250px;
-    background-color:#483475;
-}
-
-.footer-1 h5{
-
-    margin-top: 3%;
-
-
-}
 .shimg{
     
     text-align: center;
@@ -86,21 +76,6 @@ h1 {
 
 
 /* START OF CSS STYLE FOR MARS ROVER APPLICATION */
-
-#mars-rover-body {
-    background-color: rgb(233, 158, 158);
-}
-
-header {
-    border: 5px brown solid;
-    text-align: center;
-    margin: 50px 500px 70px 500px;
-
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 10px;
-}
 
 .main-h3 {
     text-align: center;

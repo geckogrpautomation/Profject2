@@ -22,6 +22,7 @@ function updatePage(data){
     list.append(`<strong>Date Created:</strong>${data.collection.items[i].data[0].date_created}`);
     list.append(`<img src="${data.collection.items[i].links[0].href}">`);
   }
+  document.getElementById('spinner').style.display='none';
 }
 
 async function getData(){
@@ -36,7 +37,8 @@ window.addEventListener("load", function () {
 
   
   $("#searchNasa").on("click", function (event) {
-      event.preventDefault();      
+      event.preventDefault(); 
+      document.getElementById('spinner').style.display='block';     
 
       getData().then(data => {
 
@@ -44,4 +46,6 @@ window.addEventListener("load", function () {
       
       });     
   });
+  
+  document.getElementById('spinner').style.display='none';
 })
