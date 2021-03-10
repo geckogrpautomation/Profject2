@@ -54,7 +54,7 @@ app.get('/nearearth', isAuthenticated , (req, res) => {
        
 });
 
-app.get ('nasaimg' , isAuthenticated , (req,res) => {
+app.get ('/nasaimg' , isAuthenticated , (req,res) => {
 
     res.render('nasaimg')
 

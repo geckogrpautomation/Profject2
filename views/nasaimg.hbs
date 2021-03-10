@@ -19,24 +19,48 @@
   <section class="even-sect">
 
     <div class="row justify-content-center align-items-center" style="margin-top: 30px">
-
-
-
       <div class="col-2 align-self-center" style="text-align: center;">
+        <input type="text" id="nasaImgSearch" placeholder="Space search">
+        <button type="submit" class="btn btn-primary" id="searchNasa">Search</button>
 
-        <div class="input-icons">
-          <i class="fa fa-calendar" aria-hidden="true" style="font-size: 35px"></i>
-          <input type="text" id="nasaImgSearchTerm" placeholder="Search Start Date">
-            <button type="submit" class="btn btn-primary" id="searchNasa">Search</button>
-        </div>
-
+          <label for="pwd">Number of Images:</label>
+            <select id="imageCount" class="custom-select" aria-labelledby="dropdownMenuButton">
+            <option selected value="1">1</option>
+                  <!-- Setting the option for 5 as default -->
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+            </select>
       </div>
-
-      
-
     </div>
 
   </section>
 
-  <script type="text/javascript" src="assets/js/nasaimg.js"></script>
+  <!-- This row will handle all of the retrieved searches -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
+        <div class="card">
+
+          <!-- card Heading for the retrieved articles box -->
+          <div class="card-header">
+            <strong>
+              <i class="fa fa-table"></i> NASA Image Results</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body">
+            <div id="list"></div>
+          
+      
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/assets/js/nasaimg.js"></script>
 </body>
