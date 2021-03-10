@@ -73,6 +73,12 @@ app.get('/nearearth', isAuthenticated , (req, res) => {
        
 });
 
+app.get ('/nasaimg' , isAuthenticated , (req,res) => {
+
+    res.render('nasaimg')
+
+});
+
 app.get("/api/neows/:date",isAuthenticated ,(req, res) => {
 
   let date = req.params.date.split('&')
