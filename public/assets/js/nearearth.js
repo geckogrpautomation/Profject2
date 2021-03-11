@@ -144,7 +144,7 @@ function buildTblBody(el,i){
                   <th scope="row">${i}</th>
                   <td id = "row${i}-name">${el.name}</td>
                   <td id = "row${i}-aDate">${el.close_approach_data[0].close_approach_date_full}</td>
-                  <td id = "row${i}-jpl-url"><a href="${el.nasa_jpl_url}">Jet Propulsion Lab. Specific Information</a></td>
+                  <td id = "row${i}-jpl-url"><a href="${el.nasa_jpl_url}"target="_blank">Jet Propulsion Lab. Specific Information</a></td>
                   <td id = "row${i}-absMag">${el.absolute_magnitude_h}</td>
                   <td id = "row${i}diaMin">${el.estimated_diameter.kilometers.estimated_diameter_min}</td>
                   <td id = "row${i}diaMax">${el.estimated_diameter.kilometers.estimated_diameter_max}</td>
