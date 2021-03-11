@@ -5,6 +5,10 @@
   <title>Nasa Natural Event Tracker</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<style></style>
   <!--Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
@@ -18,6 +22,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+ <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css">
+<link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
 </head>
 <body>
     <!--container starts here-->
@@ -28,30 +37,56 @@
           <p>We are adventurers, lovers of art knowledge and all things awesome. We would love you to explore and enjoy the lovely content on how amazing and beautiful nature is even though these events have been devastating to many. Our hearts go out to those affected.</p>
         </div>
         <div class="row">
-          <div class="col-sm-6">
-            <h3>Click & Explore</h3>
-        <!--data appended to this block-->
-         <div id="selections" class="selections">
-        <span id="eventTitle"></span>
-        <div id="eventSelect"><dl id="eventList"></dl></div>
-        <div id="layerSelect"><dl id="layerList"></dl></div>
-        <button onclick="goBack()">Go Back</button>
-        <br>
-         </div>
+          <h3>Top 4 most recent events</h3>
+          <div class="col-sm-3">
+
+      
+  <h1>{{eventTitle}}</h1>
+  <p>{{category}}</p>
+  <p>{{eventId}}</p>
+  <p>{{date}}</p>
+  <p>{{location}}</p>
+
           </div>
-          <div class="col-sm-6">
-            <h3>Watch this space for some cool images of events</h3>
-            <div id="map" class="map"></div>
-            <p>Some events may not have some pictures, dont be deterred just click until an amzing image shows up!</p>
-          </div>
-        </div>
-        <!--second container-->
-          <div class="row">
-          <div class="col-sm-12">
-            <h6>This Map has been populated with some natural events. Click a location and have a look which events are common to that area</h6>               
-            <div id="googleMap" style="width:100%;height:400px;"></div>
-          </div>
-        </div>
+   <div class="col-sm-3">
+
+
+  <h1>{{eventTitle1}}</h1>
+  <p>{{category1}}</p>
+  <p>{{eventId1}}</p>
+  <p>{{date1}}</p>
+  <p>{{location1}}</p>
+
+</div>
+ <div class="col-sm-3">
+
+  <h1>{{eventTitle2}}</h1>
+  <p>{{category2}}</p>
+  <p>{{eventId2}}</p>
+  <p>{{date2}}</p>
+  <p>{{location2}}</p>
+
+</div>
+<div class="col-sm-3">
+
+  <h1>{{eventTitle3}}</h1>
+  <p>{{category3}}</p>
+  <p>{{eventId3}}</p>
+  <p>{{date3}}</p>
+  <p>{{location3}}</p>
+
+</div>
+
+</div>
+
+
+  <h3>Browse Map for event locations</h3>
+      
+      <div id="googleMap" style="width:100%;height:400px;"></div>
+
+     
+
+        
         <!-- Fourth Container (Grid) -->
   <div class="container-fluid bg-3 text-center">    
     <h3 class="margin">Check out some of these awesome features on the Earthdata website</h3><br>
@@ -75,16 +110,49 @@
   </div>
       </div>
 <!--JS script link-->
+<script> function myMap() {
+  var mapProp= {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:0,
+  };
+
+
+
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    // load natural event data from nasa into google maps
+    map.data.loadGeoJson(
+      "https://eonet.sci.gsfc.nasa.gov/api/v3/events/geojson");
+      
+
+       var infowindow = new google.maps.InfoWindow();
+  
+  // When the user clicks, open an infowindow
+    map.data.addListener('click', function(event) {
+    var myHTML = event.feature.getProperty("id") + `<br>`+ event.feature.getProperty("title") + `<br>` + event.feature.getProperty("date") +`<br>` + event.feature.getProperty("link");
+    infowindow.setContent("<div style='width:200px; color:black'>"+myHTML+"</div>");
+    // position the infowindow on the marker
+    infowindow.setPosition(event.feature.getGeometry().get());
+    // anchor the infowindow on the marker
+    infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
+    infowindow.open(map);
+  });
+  
+  }</script>
+</script>
  <script type="text/javascript" src="assets/js/maps.js"></script>
- <script type="text/javascript" src="assets/js/eonet.js"></script>
+ <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css">
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 <!--Bootstrap css-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!--google maps api-->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<!-- OpenLayers -->
-<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq-PcgTMxiG_w_KKuEWdJAiknn9B6CmfU&callback=myMap"></script>
+   <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq-PcgTMxiG_w_KKuEWdJAiknn9B6CmfU&callback=myMap"></script>
 </body>
 </html>

@@ -58,13 +58,25 @@ module.exports = function(app) {
 });
 
 app.get('/eonet', isAuthenticated , (req, res) => {
-
-  res.render('eonet')
+  const server = "https://eonet.sci.gsfc.nasa.gov/api/v3/events";
+  fetch(server)
+    .then(response => response.json())
+    .then(data =>{      
+          
+      res.render('eonet', {eventTitle : data.events[0].title,  category :data.events[0].categories[0].title , eventId : data.events[0].id , date : data.events[0].geometry[0].date, location: data.events[0].geometry[0].coordinates,
+      
+        eventTitle1 : data.events[1].title ,  category1 :data.events[1].categories[0].title , eventId1: data.events[1].id , date1 : data.events[1].geometry[0].date, location1: data.events[1].geometry[0].coordinates,
+      
+        eventTitle2 : data.events[2].title ,  category2 :data.events[2].categories[0].title , eventId2: data.events[2].id , date2 : data.events[2].geometry[0].date, location2: data.events[2].geometry[0].coordinates,
+        eventTitle3 : data.events[3].title,  category3 :data.events[0].categories[0].title , eventId3: data.events[3].id , date3: data.events[3].geometry[0].date, location3: data.events[3].geometry[0].coordinates,
+      
+        eventTitle4 : data.events[4].title ,  category4 :data.events[1].categories[0].title , eventId4: data.events[4].id , date4 : data.events[4].geometry[0].date, location4: data.events[4].geometry[0].coordinates,
+        
+        eventTitle5 : data.events[5].title ,  category5 :data.events[2].categories[0].title , eventId5: data.events[5].id , date5 : data.events[5].geometry[0].date, location5: data.events[5].geometry[0].coordinates,
+      })
+  });
+ 
    
-});
-
-app.get('/eonet', isAuthenticated, (req,res) =>{
-  res.render('/eonet')
 
   //fetch and return json data
 
