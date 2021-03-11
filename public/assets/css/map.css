@@ -1,0 +1,19 @@
+body { margin: 20; padding: 20; }
+#googleMap {
+  height: 100%;
+}
+#fit {
+  display: block;
+  position: relative;
+  margin: 0px auto;
+  width: 50%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #ee8a65;
+  }
+  
