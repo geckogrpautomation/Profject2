@@ -20,7 +20,7 @@ function updatePage(data){
     list.append(`<strong>Title:</strong>${data.collection.items[i].data[0].title}`);
     list.append(`<strong>Description:</strong>${data.collection.items[i].data[0].description}`);
     list.append(`<strong>Date Created:</strong>${data.collection.items[i].data[0].date_created}`);
-    list.append(`<img src="${data.collection.items[i].links[0].href}">`);
+    list.append(`<img src="${data.collection.items[i].links[0].href}" style="max-height:70%; max-width:70%;text-align:center;" class="shimg shadow-sm p-3 mb-5 bg-body rounded">`);
   }
   document.getElementById('spinner').style.display='none';
 }
